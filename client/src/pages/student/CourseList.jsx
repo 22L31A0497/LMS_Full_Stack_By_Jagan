@@ -3,6 +3,8 @@ import { AppContext } from '../../context/AppContext'
 import SearchBar from '../../components/student/SearchBar'
 import { useParams } from 'react-router-dom'
 import CourseCard from '../../components/student/CourseCard'
+import { assets } from '../../assets/assets'
+import Footer from '../../components/student/Footer'
 
 const CourseList = () => {
   const { navigate, allCourses } = useContext(AppContext)
@@ -36,7 +38,13 @@ const CourseList = () => {
           </div>
           <SearchBar data={input} />
         </div>
+         {
+          input &&<div className='inline-flex items-center gap-4 px-4 py-2 border mt-8-mb-8 text-gray-600'>
+            <p>{input}</p>
+             <img src={assets.cross_icon} alt="" className='cursor-pointer' onClick={()=>navigate('./course-list')}/>
 
+          </div>
+         }
         {/* Course List Section */}
         <div className='mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
           {filteredCourse.map((course, index) => (
@@ -44,6 +52,7 @@ const CourseList = () => {
           ))}
         </div>
       </div>
+       <Footer/>
     </>
   )
 }
