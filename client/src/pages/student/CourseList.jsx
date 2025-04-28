@@ -53,6 +53,7 @@ const CourseList = () => {
         </div>
       </div>
        <Footer/>
+
     </>
   )
 }
