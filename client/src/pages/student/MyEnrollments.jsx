@@ -57,7 +57,7 @@ const MyEnrollments = () => {
               </td>
               <td className="px-4 py-3 max-sm:text-right">
                 <button
-                  className="px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200 transition-all duration-300"
+                  className="px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200 transition-all duration-300 "
                 onClick={() => navigate('/player/' + course._id)}>
                   {progressArray[index] && progressArray[index].lectureCompleted === progressArray[index].totalLectures
                     ? "Completed"
