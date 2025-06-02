@@ -1,7 +1,8 @@
-import express from "express";
-import mongoose, { mongo } from "mongoose";
 
-const userSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema(
+    {
     _id:{
         type: String,required:true
     },
@@ -14,22 +15,20 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
+  
  imageUrl:{
     type: String,
     required: true,
   },
-  enrolledCourses:[{
+  enrolledCourses:[
+    {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Course'
-  }],
+  }
+ ],
  
-},
-{timestamps: true});
+},{timestamps: true});
 
 const User = mongoose.model("User", userSchema);
 
-export default User;
+export default User; 

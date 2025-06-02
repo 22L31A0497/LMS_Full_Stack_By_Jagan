@@ -15,7 +15,8 @@ app.use(cors());
 
 //Routes
 app.get('/', (req, res) => res.send('Welcome to the server!'));
-app.post('/clerk',express.json(),clerkWebhooks)
+
+app.post('/clerk', express.json(), clerkWebhooks)
 //Port
 const PORT = process.env.PORT || 6969;
 
