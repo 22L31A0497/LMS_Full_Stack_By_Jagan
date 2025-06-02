@@ -1,27 +1,29 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 import 'dotenv/config';
 import connectDB from './configs/mongodb.js';
-import { clerkWebhooks } from './controllers/webhooks.js';
+import { clerkWebhooks } from "./controllers/webhooks.js";
 
-
-//initialize express
+// Initialize Express
 const app = express();
-//connect to database
-connectDB();    
-// Middleware   
 
+// Connect to MongoDB
+connectDB();
+
+// Enable CORS
 app.use(cors());
 
-//Routes
-app.get('/', (req, res) => res.send('Welcome to the server!'));
+// 👉 Clerk webhook (must come BEFORE express.json())
+app.post("/api/webhook", express.raw({ type: "application/json" }), clerkWebhooks);
 
-app.post('/clerk', express.json(), clerkWebhooks)
-//Port
+// 👉 Now enable body parser for rest of the routes
+app.use(express.json());
+
+// Optional: other routes below this line
+app.get("/", (req, res) => res.send("Welcome to the server!"));
+
+// Start the server
 const PORT = process.env.PORT || 6969;
-
-//start server
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
- 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
