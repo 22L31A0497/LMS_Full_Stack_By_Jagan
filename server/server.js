@@ -14,6 +14,7 @@ connectDB();
 app.use(cors());
 
 // 👉 Clerk webhook (must come BEFORE express.json())
+// Use express.raw middleware to preserve raw request body for Svix signature verification
 app.post("/api/webhook", express.raw({ type: "application/json" }), clerkWebhooks);
 
 // 👉 Now enable body parser for rest of the routes
