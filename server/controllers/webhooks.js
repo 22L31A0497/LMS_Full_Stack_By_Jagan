@@ -34,7 +34,9 @@ export const clerkWebhooks = async (req, res) => {
         };
 
         try {
+          console.log("Creating user with data:", userData);
           await User.create(userData);
+          console.log("User created successfully");
           res.json({ success: true });
         } catch (err) {
           console.error("Error creating user:", err);
