@@ -10,6 +10,7 @@ const Footer = () => {
             <img src={assets.logo_dark} alt="logo"/>
             <p className="mt-6 text-center md:text-left text-sm text-sm text-white/80">Committed to providing quality education and resources to help you grow and succeed.
              </p>
+             
           </div>
           <div className='flex flex-col md:items-start items-center w-full'>
             <h2 className='font-semibold text-white mb-5'>Company</h2>
@@ -18,7 +19,6 @@ const Footer = () => {
               <li> <a href='#'>About Us</a></li>
               <li> <a href='#'>Contact Us</a></li>
               <li> <a href='#'>Privacy Policy</a></li>
-              <li> <a href='#'>Home</a></li>
             </ul>
           </div>
           <div className='hidden md:flex flex-col items-start w-full'>
