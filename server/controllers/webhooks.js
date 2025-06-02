@@ -1,5 +1,5 @@
 import { Webhook } from "svix";
-import User from "../models/User";
+import User from "../models/User.js";
 
 //API controller function to manage clerk user with database
 
@@ -43,7 +43,7 @@ export const clerkWebhooks = async (req, res) => {
             break;  
     } 
    }catch(error){
-    res.status(500).json({message: "Internal server error", error: error.message});
+    res.json({message: "Internal server error", error: error.message});
 
    }
 }
